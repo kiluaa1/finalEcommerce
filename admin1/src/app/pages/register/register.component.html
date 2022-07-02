@@ -1,0 +1,67 @@
+<div class="container mt-3">
+    <form #register="ngForm" (ngSubmit)="handleRegister(register)">
+        <div class="alert alert-danger text-center" *ngIf="errMsg">
+            <video autoplay> <source src="assets/marwan.mp4" type="video/mp4"></video>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your name" required [(ngModel)]="model.name" 
+            name="name" #name="ngModel" minlength="3">
+            <div class="alert alert-danger" *ngIf="register.submitted && name.invalid">
+                <div *ngIf="name.errors?.['required']">
+                    name is required
+                </div>
+                <div *ngIf="name.errors?.['minlength']">
+                    min length = 3
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" placeholder="enter your email" required email [(ngModel)]="model.email"
+            name="email" #email="ngModel">
+            <div class="alert alert-danger" *ngIf="email.invalid && register.submitted ">
+                <div *ngIf="email.errors?.['required']">
+                    email is required
+                </div>
+                <div *ngIf="email.errors?.['email']">
+                    invalid email
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" placeholder="enter your password" required [(ngModel)]="model.password" 
+            name="password" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}">
+            <div class="alert alert-danger" *ngIf="password.invalid && register.submitted">
+                <div *ngIf="password.errors?.['required']">
+                    password is required
+                </div>
+
+                <div *ngIf="password.errors?.['pattern']">
+                    must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your phone" required [(ngModel)]="model.phone" 
+            name="phone" #phone="ngModel" minlength="11">
+            <div class="alert alert-danger" *ngIf="register.submitted && phone.invalid" minlength="11">
+                <div *ngIf="phone.errors?.['required']">
+                    phone is required
+                </div>
+                <div *ngIf="phone.errors?.['minlength']">
+                    min length = 11
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your gender" required [(ngModel)]="model.gender" 
+            name="gender" #gender="ngModel">
+            <div class="alert alert-danger" *ngIf="register.submitted && gender.invalid">
+                <div *ngIf="gender.errors?.['required']">
+                    gender is required
+                    console.log({{gender|json}})
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">add new admin</button>
+    </form>
+</div>

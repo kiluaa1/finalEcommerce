@@ -1,0 +1,20 @@
+<div class="container mt-3">
+    <form #addCatogry="ngForm" (ngSubmit)="handleAddCatogry(addCatogry)">
+        <div class="alert alert-danger text-center" *ngIf="errMsg">
+            <video autoplay> <source src="assets/marwan.mp4" type="video/mp4"></video>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your name" required [(ngModel)]="model.name" 
+            name="name" #name="ngModel" minlength="3">
+            <div class="alert alert-danger" *ngIf="addCatogry.submitted && name.invalid">
+                <div *ngIf="name.errors?.['required']">
+                    name is required
+                </div>
+                <div *ngIf="name.errors?.['minlength']">
+                    min length = 3
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">add new admin</button>
+    </form>
+</div>

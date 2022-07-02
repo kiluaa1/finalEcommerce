@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table table-stripped" >
+    <thead>
+        <tr>
+            <th>message</th>
+            <th>from</th>
+            <th>option</th>
+
+
+        </tr>
+    </thead>
+    <tbody id="contentWrap" *ngFor="let comment of allComment" >
+        <tr>
+            <td> {{comment.message}}</td>
+            <td>  {{comment.email}}</td>
+            <td>  <button class="btn btn-danger mx-3" (click)="delete(comment._id)">delete</button></td>
+
+        </tr>
+    </tbody>
+
+</table>

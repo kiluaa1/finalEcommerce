@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table table-stripped" >
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>phone</th>
+
+
+        </tr>
+    </thead>
+    <tbody id="contentWrap" *ngFor="let user of users" >
+        <tr>
+            <td> {{user.name}}</td>
+            <td>  {{user.email}}</td>
+            <td>  {{user.phone}}</td>
+
+
+        </tr>
+    </tbody>
+
+</table>

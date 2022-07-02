@@ -1,0 +1,56 @@
+<div class="container mt-3">
+    <form #addProduct="ngForm" (ngSubmit)="handleAddProduct(addProduct)">
+        
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your name" required [(ngModel)]="model.name" 
+            name="name" #name="ngModel" minlength="3">
+            <div class="alert alert-danger" *ngIf="addProduct.submitted && name.invalid">
+                <div *ngIf="name.errors?.['required']">
+                    name is required
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your brand" required email [(ngModel)]="model.email"
+            name="brand" #brand="ngModel">
+            <div class="alert alert-danger" *ngIf="brand.invalid && addProduct.submitted ">
+                <div *ngIf="brand.errors?.['required']">
+                    brand is required
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" placeholder="enter your price" required [(ngModel)]="model.price" 
+            name="price" #price="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}">
+            <div class="alert alert-danger" *ngIf="price.invalid && addProduct.submitted">
+                <div *ngIf="price.errors?.['required']">
+                    price is required
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your catogryId" required [(ngModel)]="model.catogryId" 
+            name="catogryId" #catogryId="ngModel" minlength="11">
+            <div class="alert alert-danger" *ngIf="addProduct.submitted && catogryId.invalid" minlength="11">
+                <div *ngIf="catogryId.errors?.['required']">
+                    catogryId is required
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" placeholder="enter your countInStock" required [(ngModel)]="model.countInStock" 
+            name="countInStock" #countInStock="ngModel">
+            <div class="alert alert-danger" *ngIf="addProduct.submitted && countInStock.invalid">
+                <div *ngIf="countInStock.errors?.['required']">
+                    countInStock is required
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="enter your comment" [(ngModel)]="model.countInStock" 
+            name="comment" #comment="ngModel">
+        </div>
+      
+        <button type="submit" class="btn btn-primary">add new Product</button>
+    </form>
+</div>

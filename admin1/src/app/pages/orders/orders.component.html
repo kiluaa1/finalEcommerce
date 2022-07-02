@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table table-stripped" >
+    <thead>
+        <tr>
+            <th>message</th>
+            <th>from</th>
+
+
+        </tr>
+    </thead>
+    <tbody id="contentWrap" *ngFor="let order of allOrders" >
+        <tr>
+            <td> {{order.message}}</td>
+            <td>  {{order.email}}</td>
+
+        </tr>
+    </tbody>
+
+</table>
