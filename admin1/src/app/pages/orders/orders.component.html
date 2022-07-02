@@ -2,16 +2,26 @@
     <table class="table table-stripped" >
     <thead>
         <tr>
-            <th>message</th>
-            <th>from</th>
+            <th>item</th>
+            <th>quantity</th>
+            <th>status</th>
+            <th>user</th>
+            <th>totalprice</th>
 
 
         </tr>
     </thead>
     <tbody id="contentWrap" *ngFor="let order of allOrders" >
-        <tr>
-            <td> {{order.message}}</td>
-            <td>  {{order.email}}</td>
+        <tr *ngFor="let item of order.itemId">
+            
+            <td> {{item.productId.name|json}}</td>
+            <td>  {{item.quantity}}</td>
+            <td>  {{order.status}}</td>
+            <td>  {{order.userId.name}}</td>
+            <td>  {{order.totalPrice}}</td>
+
+
+
 
         </tr>
     </tbody>
